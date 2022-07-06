@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marebu/size_config.dart';
 import 'package:marebu/styleGuide.dart';
 import 'package:marebu/data/onBoardingData.dart';
+import 'package:marebu/screen/component/OnBoardingContent.dart';
 
 class BodyOnboarding extends StatefulWidget {
   @override
@@ -18,60 +19,46 @@ class _BodyOnboardingState extends State<BodyOnboarding> {
           children: <Widget>[
             Expanded(
               flex: 3,
-              child: ListView.builder(
-                addAutomaticKeepAlives: false,
+              child: PageView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: listDataOnboarding.length,
                 itemBuilder: (context, index) {
                   final DataOnboarding data = listDataOnboarding[index];
-                  return Column(
-                    children: <Widget>[
-                      Spacer(),
-                      Image.asset(
-                        data.image,
-                        height: getProportionateScreenHeight(316),
-                        width: getProportionateScreenWidth(444),
-                      ),
-                      const SizedBox(
-                        height: 47.5,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              data.title,
-                              textAlign: TextAlign.left,
-                              style: Title1.copyWith(
-                                  fontSize: getProportionateScreenWidth(36),
-                                  fontWeight: semiBold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8.0,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              data.desc,
-                              textAlign: TextAlign.justify,
-                              style: Body.copyWith(
-                                fontSize: getProportionateScreenWidth(14),
-                                fontWeight: reguler,
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  );
+                  return OnBoardingContent(data: data);
                 },
               ),
             ),
-            Expanded(flex: 1, child: SizedBox())
+            SizedBox(
+              height: getProportionateScreenHeight(50),
+            ),
+            Expanded(
+                flex: 1,
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          listDataOnboarding.length,
+                          (index) => buildDots(index),
+                        ))
+                  ],
+                ))
           ],
         ),
+      ),
+    );
+  }
+
+  Container buildDots(int index) {
+    final currentpage = index;
+    return Container(
+      child: Text("$currentpage"),
+      margin: EdgeInsets.all(16),
+      height: 12,
+      width: currentpage == index ? 56 : 12,
+      decoration: BoxDecoration(
+        color: currentpage == index ? pressedColor : primaryColor,
+        borderRadius: BorderRadius.circular(13),
       ),
     );
   }
