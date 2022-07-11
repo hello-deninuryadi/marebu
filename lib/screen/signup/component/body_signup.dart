@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marebu/screen/login/component/default_button.dart';
 import 'package:marebu/screen/login/component/header_widget.dart';
 import 'package:marebu/screen/signup/component/hero_image.dart';
 import 'package:marebu/screen/signup/component/input_email_widget.dart';
@@ -31,7 +32,14 @@ class _BodySignUp extends State<BodySignUp> {
           const input_password(
             place_holder: "Confirmation Password",
           ),
-          termCondition()
+          termCondition(),
+          default_button(
+            place_holder_text: "Sign Up",
+            navigasi: "",
+          ),
+          SizedBox(
+            height: 24,
+          )
         ],
       ),
     );

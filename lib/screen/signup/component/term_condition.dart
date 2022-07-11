@@ -27,7 +27,7 @@ class _termCondition extends State<termCondition> {
                   value: value,
                   onChanged: (value) {
                     setState(() {
-                      // this.value = value;
+                      this.value = value!;
                     });
                   }),
               Text(
