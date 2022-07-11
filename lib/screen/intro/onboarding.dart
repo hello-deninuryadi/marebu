@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marebu/screen/component/bodyOnboarding.dart';
+import 'package:marebu/screen/intro/component/body_onboarding.dart';
 import 'package:marebu/size_config.dart';
 import 'package:marebu/styleGuide.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:marebu/data/onBoardingData.dart';
+import 'package:marebu/data/onboarding_data.dart';
 import 'package:marebu/size_config.dart';
 import 'package:marebu/styleGuide.dart';
 
@@ -15,7 +15,9 @@ class OnBoardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Spacer(),
+        SizedBox(
+          height: 50.0,
+        ),
         Image.asset(
           data.image,
           height: getProportionateScreenHeight(316),

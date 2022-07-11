@@ -29,9 +29,4 @@ var listDataOnboarding = [
       desc: "Book a parking space quickly and easily",
       image: "asset/image/Splash_3.png",
       currentPage: 2),
-  DataOnboarding(
-      title: "Book a parking\narea easily",
-      desc: "Book a parking space quickly and easily",
-      image: "asset/image/Splash_3.png",
-      currentPage: 3),
 ];
